@@ -234,38 +234,38 @@
 
       .post-tags {
         list-style: none;
-        margin: 0;
-        padding: 0;
+        // margin: 0;
+        // padding: 0;
         overflow: auto;
-        white-space: nowrap;
+        white-space: normal;
+        // li {
+        //   display: inline-block;
+        // }
         
-
-        a {
-          color: $global-font-secondary-color;
-          display: inline-block;
-          line-height: 26px;
-          padding: 0 10px;
-          position: relative;
-          margin: 0 5px 5px 0;
-          text-decoration: none;
-          -webkit-transition: color 0.2s;
-          @include border-radius(.25rem);
-          border: 1px solid;
-          &:hover {
-            background-color: $global-background-color;
-            color: $global-link-hover-color;
-          }
-          [theme=dark] & {
-            color: $global-font-secondary-color-dark;
-            &:hover {
-              background-color: $global-background-color-dark;
-              color: $global-link-hover-color-dark;
-            }
-          }
-        }
+        // a {
+        //   color: $global-font-secondary-color;
+        //   display: inline-block;
+        //   line-height: 26px;
+        //   padding: 0 10px;
+        //   position: relative;
+        //   margin: 0 5px 5px 0;
+        //   text-decoration: none;
+        //   -webkit-transition: color 0.2s;
+        //   @include border-radius(.25rem);
+        //   border: 1px solid;
+        //   &:hover {
+        //     background-color: $global-background-color;
+        //     color: $global-link-hover-color;
+        //   }
+        //   [theme=dark] & {
+        //     color: $global-font-secondary-color-dark;
+        //     &:hover {
+        //       background-color: $global-background-color-dark;
+        //       color: $global-link-hover-color-dark;
+        //     }
+        //   }
+        // }
       }
     }
   }
-
-
 }
