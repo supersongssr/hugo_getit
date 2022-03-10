@@ -13,6 +13,9 @@ other = "查看评论"
 # === Post ===
 [posts]
 other = "文章"
+
+[p]
+other = "游戏"
 # === Post ===
 
 # === Taxonomy ===
