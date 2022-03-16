@@ -316,8 +316,8 @@ function initSearch() {
                     const search = () => {
                         const results = {};
                         window._index.search(query).forEach(({ item, refIndex, matches }) => {
-                            let title = item.title;
-                            let content = item.content;
+                            let title = item.t;
+                            let content = '';
                             matches.forEach(({ indices, value, key }) => {
                                 if (key === 'content') {
                                     let offset = 0;
@@ -327,22 +327,22 @@ function initSearch() {
                                         content = content.substring(0, indices[i][0] + offset) + tag + content.substring(indices[i][1] + 1 + offset, content.length);
                                         offset += highlightTag.length * 2 + 5;
                                     }
-                                } else if (key === 'title') {
+                                } else if (key === 't') {
                                     let offset = 0;
                                     for (let i = 0; i < indices.length; i++) {
                                         let substr = title.substring(indices[i][0] + offset, indices[i][1] + 1 + offset);
                                         let tag = `<${highlightTag}>` + substr + `</${highlightTag}>`;
-                                        title = title.substring(0, indices[i][0] + offset) + tag + title.substring(indices[i][1] + 1 + offset, content.length);
+                                        title = title.substring(0, indices[i][0] + offset) + tag + title.substring(indices[i][1] + 1 + offset, 64);
                                         offset += highlightTag.length * 2 + 5;
 
                                     }
                                 }
                             });
-                            results[item.uri] = {
-                                'uri': item.uri,
-                                'title': title,
-                                'date': item.date,
-                                'context': content
+                            results[item.u] = {
+                                'uri': item.u,
+                                'title': item.t,
+                                'date': item.d,
+                                'context': item.u
                             };
                         });
                         return Object.values(results).slice(0, maxResultLength);
@@ -365,8 +365,7 @@ function initSearch() {
                                     shouldSort: true,
                                     includeMatches: true,
                                     keys: [
-                                        "content",
-                                        "title"
+                                        "t"
                                     ]
                                 };
                                 window._index = new Fuse(data, options);

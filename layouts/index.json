@@ -8,13 +8,9 @@
     {{- end -}}
     {{- range $pages -}}
         {{- $uri := .RelPermalink -}}
-        {{- if $.Site.Params.search.absoluteURL -}}
-            {{- $uri = .Permalink -}}
-        {{- end -}}
-        {{- $meta := dict "uri" $uri "title" .Title -}}
-        {{- $meta = $.Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format | dict "date" | merge $meta -}}
-        {{- $one := dict "content" ""| merge $meta -}}
-        {{- $index = $index | append $one -}}
+        {{- $meta := dict "u" $uri "t" .Title -}}
+        {{- $meta = $.Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format | dict "d" | merge $meta -}}
+        {{- $index = $index | append $meta -}}
     {{- end -}}
     {{- $index | jsonify | safeJS -}}
 {{- end -}}
