@@ -33,7 +33,7 @@
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     </h1>
 
-    {{- /* Meta */ -}}
+    <!-- {{- /* Meta */ -}}
     <div class="post-meta">
         {{- $author := $params.author | default .Site.Author.name | default (T "author") -}}
         {{- $authorLink := $params.authorlink | default .Site.Author.link | default .Site.Home.RelPermalink -}}
@@ -45,13 +45,12 @@
         {{- with .Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format -}}
             &nbsp;<span class="post-publish">
                 {{- printf `<time datetime="%v">%v</time>` . . | dict "Date" | T "publishedOnDate" | safeHTML -}}
+                {{- printf `<time datetime="%v">%v</time>` . . | safeHTML -}}
             </span>
-        {{- end -}}
+        {{- end -}}   
+    </div> -->
 
-        
-    </div>
-
-    {{- /* Summary content */ -}}
+    <!-- {{- /* Summary content */ -}}
     <div class="content">
         {{- $categories := slice -}}
         {{- range .Params.categories -}}
@@ -63,9 +62,9 @@
                 {{- dict "Categories" . | T "includedInCategories" | safeHTML -}}
             </span>
         {{- end -}}
-    </div>
+    </div> -->
 
-    {{- /* Footer */ -}}
+    <!-- {{- /* Footer */ -}}
     <div class="post-footer">
         {{- with .Params.tags -}}
             <div class="post-tags">
@@ -77,5 +76,5 @@
                 {{- end -}}
             </div>
         {{- end -}}
-    </div>
+    </div> -->
 </article>

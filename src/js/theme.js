@@ -340,7 +340,7 @@ function initSearch() {
                             });
                             results[item.u] = {
                                 'uri': item.u,
-                                'title': item.t,
+                                'title': title,
                                 'date': item.d,
                                 'context': item.u
                             };
